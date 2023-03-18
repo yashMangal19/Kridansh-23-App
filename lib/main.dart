@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'Screens/homepage.dart';
+import 'Screens/choose.dart';
 
 void main() {
   runApp(const KridanshApp());
@@ -19,7 +19,7 @@ class KridanshApp extends StatelessWidget {
         fontFamily: GoogleFonts.poppins().fontFamily,
       ),
       debugShowCheckedModeBanner: false,
-      home: const HomePage(),
+      home: const Choose(),
     );
   }
 }
