@@ -1,6 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:gsheets/gsheets.dart';
+import 'package:kridansh_23_app/models/team.dart';
 import '../models/youtube.dart';
+import '../models/match.dart';
 
 /*
 @KridanshSheetApi contains functions for getting the database google sheet named @Kridansh_23_App_Database
@@ -34,10 +36,10 @@ class KridanshSheetApi {
 
   /*
   Youtube Sheet named @Youtube_Links which contains the youtube highlight links.
-  @Function - {initYoutubeSheet} function gets the @Youtube_Links sheet and if its first row is empty then initialises it with youtube model fields.
-  @Function - {_getWorksheet} is a private function that gets the sheet is not available created one.
-  @Function - {getYoutubeById} gets a link by an id.
-  @Function - {getAllYoutube} gets all youtube links.
+  @Function - [initYoutubeSheet] function gets the @Youtube_Links sheet and if its first row is empty then initialises it with youtube model fields.
+  @CommonFunction - [_getWorksheet] is a function that gets the sheet if not available created one.
+  @Function - [getYoutubeById] gets a link by an id.
+  @Function - [getAllYoutube] gets all youtube links.
    */
   static Worksheet? _youtubeSheet;
 
@@ -71,6 +73,180 @@ class KridanshSheetApi {
         : youtubeLinks.map(Youtube.fromJson).toList();
   }
 
+  // #################################################################################
+
+  /*
+  Matches Day1 Sheet named @Matches_Day1 which contains the list of match details of day1.
+  @Function - [initMatchesDay1Sheet] function gets the @Matches_Day1 sheet and if its first row is empty then initialises it with match model fields.
+  @CommonFunction - [_getWorksheet] is a private function that gets the sheet is not available created one.
+  @Function - [getMatchesDay1ById] gets a match by an id.
+  @Function - [getAllMatchesDay1] gets all matches of day1.
+   */
+  static Worksheet? _matchListDay1Sheet;
+
+  static Future initMatchesDay1Sheet() async {
+    try {
+      final spreadsheet = await _kridanshSheets.spreadsheet(_spreadsheetId);
+      _matchListDay1Sheet =
+          await _getWorksheet(spreadsheet, title: 'Matches_Day1');
+      final firstRow = MatchFields.getFields();
+      _matchListDay1Sheet!.values.insertRow(1, firstRow);
+    } catch (e) {
+      if (kDebugMode) {
+        print("Init error: $e");
+      }
+    }
+  }
+
+  static Future<Match?> getMatchesDay1ById(int id) async {
+    if (_matchListDay1Sheet == null) return null;
+
+    final json =
+        await _matchListDay1Sheet!.values.map.rowByKey(id, fromColumn: 1);
+
+    return json == null ? null : Match.fromJson(json);
+  }
+
+  static Future<List<Match>> getAllMatchesDay1() async {
+    if (_matchListDay1Sheet == null) return <Match>[];
+
+    final matchesDay1List = await _matchListDay1Sheet!.values.map.allRows();
+    return matchesDay1List == null
+        ? <Match>[]
+        : matchesDay1List.map(Match.fromJson).toList();
+  }
+
+  // #################################################################################
+
+  /*
+  Matches Day1 Sheet named @Matches_Day1 which contains the list of match details of day1.
+  @Function - [initMatchesDay1Sheet] function gets the @Matches_Day1 sheet and if its first row is empty then initialises it with match model fields.
+  @CommonFunction - [_getWorksheet] is a private function that gets the sheet is not available created one.
+  @Function - [getMatchesDay1ById] gets a match by an id.
+  @Function - [getAllMatchesDay1] gets all matches of day1.
+   */
+  static Worksheet? _matchListDay2Sheet;
+
+  static Future initMatchesDay2Sheet() async {
+    try {
+      final spreadsheet = await _kridanshSheets.spreadsheet(_spreadsheetId);
+      _matchListDay2Sheet =
+          await _getWorksheet(spreadsheet, title: 'Matches_Day2');
+      final firstRow = MatchFields.getFields();
+      _matchListDay2Sheet!.values.insertRow(1, firstRow);
+    } catch (e) {
+      if (kDebugMode) {
+        print("Init error: $e");
+      }
+    }
+  }
+
+  static Future<Match?> getMatchesDay2ById(int id) async {
+    if (_matchListDay2Sheet == null) return null;
+
+    final json =
+        await _matchListDay2Sheet!.values.map.rowByKey(id, fromColumn: 1);
+
+    return json == null ? null : Match.fromJson(json);
+  }
+
+  static Future<List<Match>> getAllMatchesDay2() async {
+    if (_matchListDay2Sheet == null) return <Match>[];
+
+    final matchesDay1List = await _matchListDay2Sheet!.values.map.allRows();
+    return matchesDay1List == null
+        ? <Match>[]
+        : matchesDay1List.map(Match.fromJson).toList();
+  }
+
+  // #################################################################################
+
+  /*
+  Matches Day1 Sheet named @Matches_Day1 which contains the list of match details of day1.
+  @Function - [initMatchesDay1Sheet] function gets the @Matches_Day1 sheet and if its first row is empty then initialises it with [Match] model fields.
+  @CommonFunction - [_getWorksheet] is a private function that gets the sheet is not available created one.
+  @Function - [getMatchesDay1ById] gets a match by an id.
+  @Function - [getAllMatchesDay1] gets all matches of day1.
+   */
+  static Worksheet? _matchListDay3Sheet;
+
+  static Future initMatchesDay3Sheet() async {
+    try {
+      final spreadsheet = await _kridanshSheets.spreadsheet(_spreadsheetId);
+      _matchListDay3Sheet =
+          await _getWorksheet(spreadsheet, title: 'Matches_Day3');
+      final firstRow = MatchFields.getFields();
+      _matchListDay3Sheet!.values.insertRow(1, firstRow);
+    } catch (e) {
+      if (kDebugMode) {
+        print("Init error: $e");
+      }
+    }
+  }
+
+  static Future<Match?> getMatchesDay3ById(int id) async {
+    if (_matchListDay3Sheet == null) return null;
+
+    final json =
+        await _matchListDay3Sheet!.values.map.rowByKey(id, fromColumn: 1);
+
+    return json == null ? null : Match.fromJson(json);
+  }
+
+  static Future<List<Match>> getAllMatchesDay3() async {
+    if (_matchListDay3Sheet == null) return <Match>[];
+
+    final matchesDay1List = await _matchListDay3Sheet!.values.map.allRows();
+    return matchesDay1List == null
+        ? <Match>[]
+        : matchesDay1List.map(Match.fromJson).toList();
+  }
+
+  // #################################################################################
+
+  /*
+  Leaderboard Sheet named @Leaderboard which contains the list of teams in ranked order.
+  @Function - [initLeaderboardSheet] function gets the @Leaderboard sheet and if its first row is empty then initialises it with [Team] model fields.
+  @CommonFunction - [_getWorksheet] is a private function that gets the sheet is not available created one.
+  @Function - [getTeamById] gets a team by an id/rank.
+  @Function - [getAllTeams] gets all teams in ranked order.
+   */
+  static Worksheet? _leaderboardSheet;
+
+  static Future initLeaderboardSheet() async {
+    try {
+      final spreadsheet = await _kridanshSheets.spreadsheet(_spreadsheetId);
+      _leaderboardSheet =
+          await _getWorksheet(spreadsheet, title: 'Leaderboard');
+      final firstRow = TeamFields.getFields();
+      _leaderboardSheet!.values.insertRow(1, firstRow);
+    } catch (e) {
+      if (kDebugMode) {
+        print("Init error: $e");
+      }
+    }
+  }
+
+  static Future<Team?> getTeamById(int id) async {
+    if (_leaderboardSheet == null) return null;
+
+    final json =
+        await _leaderboardSheet!.values.map.rowByKey(id, fromColumn: 1);
+
+    return json == null ? null : Team.fromJson(json);
+  }
+
+  static Future<List<Team>> getAllTeams() async {
+    if (_leaderboardSheet == null) return <Team>[];
+
+    final teamsList = await _leaderboardSheet!.values.map.allRows();
+    return teamsList == null ? <Team>[] : teamsList.map(Team.fromJson).toList();
+  }
+
+  // #################################################################################
+
+  // Common functions
+  // 1. [_getWorksheet] is a function that gets the sheet if not available created one.
   static Future<Worksheet?> _getWorksheet(Spreadsheet spreadsheet,
       {required String title}) async {
     try {

@@ -6,7 +6,7 @@ class YoutubeFields {
   static const String title = "title";
   static const String link = "link";
 
-  static List<String> getFields() => [id];
+  static List<String> getFields() => [id, title, link];
 }
 
 // Model Class for a youtube link from @Youtube_Links sheet.
@@ -29,7 +29,7 @@ class Youtube {
         YoutubeFields.link: link,
       };
 
-  // Function to convert json dictionary to @Youtube model.
+  // Function to convert json dictionary to [Youtube] model.
   static Youtube fromJson(Map<String, dynamic> json) => Youtube(
         id: jsonDecode(json[YoutubeFields.id]),
         title: json[YoutubeFields.title],
