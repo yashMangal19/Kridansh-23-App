@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "785056177811",
+    "project_id": "kridansh",
+    "storage_bucket": "kridansh.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:785056177811:android:63312995ababa8d043f766",
+        "android_client_info": {
+          "package_name": "com.example.kridansh_23_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "785056177811-7k3g016kr2tkjdmi48qdihn0pe3n94uh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA5DPtnvOqtvB-33m0tRQoBDRXn8GEs3Dg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "785056177811-7k3g016kr2tkjdmi48qdihn0pe3n94uh.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "785056177811-0ha7lah2bnf1b50bfeakmkc2o0vim0uo.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.kridansh23App"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

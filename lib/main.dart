@@ -4,12 +4,15 @@ import 'package:kridansh_23_app/Screens/leaderboard.dart';
 import 'Screens/schedule.dart';
 import 'Utils/constants.dart';
 import 'gsheets_api/kridansh_sheet.dart';
-
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 import 'Screens/homepage.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   // Initialising all the sheets.
   await KridanshSheetApi.initYoutubeSheet();
   // await KridanshSheetApi.initMatchesDay1Sheet();
