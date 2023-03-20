@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kridansh_23_app/Utils/constants.dart';
-import 'package:url_launcher/url_launcher_string.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 /*
@@ -37,12 +36,6 @@ class _YoutubeVideoState extends State<YoutubeVideo> {
     String thumbnailLink = "https://img.youtube.com/vi/$id/0.jpg";
 
     return thumbnailLink;
-  }
-
-  void _launchURL(String url) async {
-    if (await canLaunchUrlString('youtube:$url')) {
-      await launchUrlString('youtube:$url');
-    }
   }
 
   /*
@@ -126,31 +119,26 @@ class _YoutubeVideoState extends State<YoutubeVideo> {
   Click on the video opens the link in the youtube app.
    */
   Widget videoTitleSection() {
-    return GestureDetector(
-      onTap: () {
-        _launchURL(widget.link);
-      },
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          const Image(
-            height: 36.0,
-            width: 36.0,
-            image: AssetImage("assets/icons/youtube.png"),
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        const Image(
+          height: 36.0,
+          width: 36.0,
+          image: AssetImage("assets/icons/youtube.png"),
+        ),
+        const SizedBox(
+          width: 16.0,
+        ),
+        Expanded(
+          child: Text(
+            widget.title,
+            overflow: TextOverflow.ellipsis,
+            maxLines: 2,
+            style: mediumTextStyle,
           ),
-          const SizedBox(
-            width: 16.0,
-          ),
-          Expanded(
-            child: Text(
-              widget.title,
-              overflow: TextOverflow.ellipsis,
-              maxLines: 2,
-              style: mediumTextStyle,
-            ),
-          )
-        ],
-      ),
+        )
+      ],
     );
   }
 }

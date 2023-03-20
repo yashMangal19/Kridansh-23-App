@@ -8,8 +8,10 @@ class MatchFields {
   static const String location = "location";
   static const String time = "time";
   static const String sport = "sport";
+  static const String day = "day";
 
-  static List<String> getFields() => [id, team1, team2, location, time, sport];
+  static List<String> getFields() =>
+      [id, team1, team2, location, time, sport, day];
 }
 
 // Model Class for a match from @Matches_Day1, @Matches_Day2, @Matches_Day3 sheet.
@@ -20,6 +22,7 @@ class Match {
   final String location;
   final String time;
   final String sport;
+  final String day;
 
   // Constructor
   const Match({
@@ -29,6 +32,7 @@ class Match {
     required this.location,
     required this.time,
     required this.sport,
+    required this.day,
   });
 
   // Function to convert model to a json dictionary.
@@ -39,6 +43,7 @@ class Match {
         MatchFields.location: location,
         MatchFields.time: time,
         MatchFields.sport: sport,
+        MatchFields.day: day,
       };
 
   // Function to convert json dictionary to [Match] model.
@@ -49,5 +54,6 @@ class Match {
         location: json[MatchFields.location],
         time: json[MatchFields.time],
         sport: json[MatchFields.sport],
+        day: json[MatchFields.day],
       );
 }

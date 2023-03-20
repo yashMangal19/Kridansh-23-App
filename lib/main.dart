@@ -12,9 +12,10 @@ void main() async {
 
   // Initialising all the sheets.
   await KridanshSheetApi.initYoutubeSheet();
-  await KridanshSheetApi.initMatchesDay1Sheet();
-  await KridanshSheetApi.initMatchesDay2Sheet();
-  await KridanshSheetApi.initMatchesDay3Sheet();
+  // await KridanshSheetApi.initMatchesDay1Sheet();
+  // await KridanshSheetApi.initMatchesDay2Sheet();
+  // await KridanshSheetApi.initMatchesDay3Sheet();
+  await KridanshSheetApi.initMatchesSheet();
   await KridanshSheetApi.initLeaderboardSheet();
 
   runApp(const KridanshApp());
