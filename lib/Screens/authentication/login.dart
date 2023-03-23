@@ -109,44 +109,54 @@ class _LoginScreenState extends State<LoginScreen> {
                         onPressed: () async{
                           onceSubmitted= true;
                           if(formKey.currentState!.validate()){
-                            try {
-                              bool isSignedIn = await _googleSignIn.isSignedIn();
-                              if(isSignedIn){
-                                await _googleSignIn.signOut();
-                              }
-                              GoogleSignInAccount? user = await _googleSignIn.signIn();
-                              debugPrint("=====================================\n\n\n");
-                              debugPrint(user.toString());
-                              if(user!=null){
-                                SharedPreferences prefs = await SharedPreferences.getInstance();
-                                await prefs.setString('User_name', nameController.text);
-                                await prefs.setString('User_hostel', hostelName);
-                                if(mounted){
-                                  Navigator.of(context).pushReplacement(
-                                      MaterialPageRoute(
-                                          builder: (context) =>
-                                              const SplashScreen()));
-                                }
-                              }
-                            } on Exception catch (error) {
-                              debugPrint("=====================================\n\n\n");
-                              debugPrint("===============Error======================\n\n\n");
-                              debugPrint(error.toString());
-                              SharedPreferences prefs = await SharedPreferences.getInstance();
-                              await prefs.setString('User_name', nameController.text);
-                              await prefs.setString('User_hostel', hostelName);
-                              await prefs.setBool('invalid_signin', true);
-                              if(mounted){
-                                Navigator.of(context).pushReplacement(
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                        const SplashScreen()));
-                              }
+                            // try {
+                            //   bool isSignedIn = await _googleSignIn.isSignedIn();
+                            //   if(isSignedIn){
+                            //     await _googleSignIn.signOut();
+                            //   }
+                            //   GoogleSignInAccount? user = await _googleSignIn.signIn();
+                            //   debugPrint("=====================================\n\n\n");
+                            //   debugPrint(user.toString());
+                            //   if(user!=null){
+                            //     SharedPreferences prefs = await SharedPreferences.getInstance();
+                            //     await prefs.setString('User_name', nameController.text);
+                            //     await prefs.setString('User_hostel', hostelName);
+                            //     if(mounted){
+                            //       Navigator.of(context).pushReplacement(
+                            //           MaterialPageRoute(
+                            //               builder: (context) =>
+                            //                   const SplashScreen()));
+                            //     }
+                            //   }
+                            // } on Exception catch (error) {
+                            //   debugPrint("=====================================\n\n\n");
+                            //   debugPrint("===============Error======================\n\n\n");
+                            //   debugPrint(error.toString());
+                            //   SharedPreferences prefs = await SharedPreferences.getInstance();
+                            //   await prefs.setString('User_name', nameController.text);
+                            //   await prefs.setString('User_hostel', hostelName);
+                            //   await prefs.setBool('invalid_signin', true);
+                            //   if(mounted){
+                            //     Navigator.of(context).pushReplacement(
+                            //         MaterialPageRoute(
+                            //             builder: (context) =>
+                            //             const SplashScreen()));
+                            //   }
+                            // }
+                            SharedPreferences prefs = await SharedPreferences.getInstance();
+                            await prefs.setString('User_name', nameController.text);
+                            await prefs.setString('User_hostel', hostelName);
+                            await prefs.setBool('invalid_signin', true);
+                            if(mounted){
+                              Navigator.of(context).pushReplacement(
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                      const SplashScreen()));
                             }
                           }
                         },
                         pageSize: pageSize,
-                        text: 'Proceed to Google SignIn',
+                        text: 'Enter',
                         bgColor: Colors.greenAccent.shade700,
                         textColor: Colors.white,
                         fontSize: 14,
