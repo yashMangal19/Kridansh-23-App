@@ -62,3 +62,27 @@ TextStyle thinTextStyle = GoogleFonts.poppins(
   fontSize: 18.0,
   fontWeight: FontWeight.w200,
 );
+
+extension ShowSnackBar on BuildContext {
+  void showSnackBar({
+    required String message,
+    Color backgroundColor = Colors.green,
+  }) {
+    ScaffoldMessenger.of(this)
+      ..removeCurrentSnackBar()
+      ..showSnackBar(SnackBar(
+        content: Text(
+          message,
+          style: const TextStyle(color: Colors.white),
+          maxLines: 2,
+        ),
+        duration: const Duration(seconds: 2),
+        backgroundColor: backgroundColor,
+      ));
+  }
+
+  void showErrorSnackBar({required String message}) {
+    showSnackBar(message: message, backgroundColor: Colors.red);
+  }
+}
+
