@@ -115,8 +115,8 @@ class _MatchTileState extends State<MatchTile> {
         Column(
           children: [
             Container(
-              height: 70,
-              width: 70,
+              height: 80,
+              width: 80,
               decoration: const BoxDecoration(
                 color: lightGrey,
                 shape: BoxShape.circle,
