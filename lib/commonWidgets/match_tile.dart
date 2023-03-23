@@ -41,7 +41,9 @@ class _MatchTileState extends State<MatchTile> {
       ),
       child: Column(
         children: [
-          teamsDisplay(),
+          logos.keys.contains(widget.team1) && logos.keys.contains(widget.team2)
+              ? teamsDisplay()
+              : allTeamsDisplay(),
           const SizedBox(
             height: 16,
           ),
@@ -64,6 +66,46 @@ class _MatchTileState extends State<MatchTile> {
   }
 
   /*
+  Widget function that displays a new widget specific for a event in which all hostels participate simultaneously.
+   */
+  Widget allTeamsDisplay() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: [
+        const SizedBox(
+          width: 15,
+        ),
+        const Image(
+          height: 120,
+          image: AssetImage('assets/images/hotel.png'),
+        ),
+        const SizedBox(
+          width: 24,
+        ),
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                widget.sport,
+                overflow: TextOverflow.ellipsis,
+                maxLines: 1,
+                style: pageHeaderStyle,
+              ),
+              Text(
+                "- All boys/girls hostels",
+                overflow: TextOverflow.ellipsis,
+                maxLines: 2,
+                style: mediumTextStyle,
+              ),
+            ],
+          ),
+        )
+      ],
+    );
+  }
+
+  /*
   @teamDisplay section displays the two logos if logo present in [logos] Map in Utils/constants.dart file else displays the name as logo.
    */
   Widget teamsDisplay() {
@@ -73,8 +115,8 @@ class _MatchTileState extends State<MatchTile> {
         Column(
           children: [
             Container(
-              height: 70,
-              width: 70,
+              height: 80,
+              width: 80,
               decoration: const BoxDecoration(
                 color: lightGrey,
                 shape: BoxShape.circle,
