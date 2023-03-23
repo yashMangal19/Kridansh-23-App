@@ -49,7 +49,7 @@ class _UpdateAppPageState extends State<UpdateAppPage> {
                   child: Image(
                     height: pageSize.height * 0.08,
                     // width: pageSize.width * 0.25,
-                    color: Colors.black,
+                    // color: Colors.black,
                     image: const AssetImage("assets/images/kridansh_logo.jpeg"),
                   ),
                 ),
@@ -94,7 +94,7 @@ class _UpdateAppPageState extends State<UpdateAppPage> {
                 onTap: () async {
                   if (updateUrl.isEmpty){
                     context.showSnackBar(
-                      message: "Wait a moment... Fetching Update URL",
+                      message: "Fetching Update URL --- If it takes too much time, go to playstore and manually update",
                       backgroundColor: Colors.purple.shade700,
                     );
                   }

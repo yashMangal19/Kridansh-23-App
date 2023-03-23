@@ -9,24 +9,37 @@ class AppConfigs{
   Map<String, dynamic>? configJson;
 
   Future<void> initialize() async{
-    await _fetchConfigs();
+    try{
+      await _fetchConfigs();
+    }
+    on Exception catch(err){
+      configJson = {
+        "latest_version" : "1.0.0",
+        "playstore_url" : ""
+      };
+    }
   }
 
 
   Future<dynamic> _fetchConfigs() async{
     var url = 'https://soumik-roy.github.io/Kridansh-App-Configs/configs.json';
 
-    var response = await http.get(
-      Uri.parse(url),
-      headers: {
-        'Content-type': 'application/json; charset=UTF-8',
-      },
-    );
+    try{
+      var response = await http.get(
+        Uri.parse(url),
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+        },
+      );
 
-    if (response.statusCode == 200) {
-      Map<String, dynamic> responseData = json.decode(response.body);
-      debugPrint(responseData.toString());
-      configJson = responseData['data'];
+      if (response.statusCode == 200) {
+        Map<String, dynamic> responseData = json.decode(response.body);
+        debugPrint(responseData.toString());
+        configJson = responseData['data'];
+      }
+    }
+    on Exception catch(err){
+      throw Exception(err.toString());
     }
   }
 
