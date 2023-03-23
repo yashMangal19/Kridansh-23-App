@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:kridansh_23_app/Screens/leaderboard.dart';
+import 'package:kridansh_23_app/Screens/splash_screen.dart';
 import 'Screens/schedule.dart';
 import 'Utils/constants.dart';
 import 'gsheets_api/kridansh_sheet.dart';
-
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 import 'Screens/homepage.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   // Initialising all the sheets.
   await KridanshSheetApi.initYoutubeSheet();
   // await KridanshSheetApi.initMatchesDay1Sheet();
@@ -18,7 +22,16 @@ void main() async {
   await KridanshSheetApi.initMatchesSheet();
   await KridanshSheetApi.initLeaderboardSheet();
 
-  runApp(const KridanshApp());
+  runApp(
+    MaterialApp(
+      title: 'Kridansh 23',
+      theme: ThemeData(
+        fontFamily: GoogleFonts.poppins().fontFamily,
+      ),
+      debugShowCheckedModeBanner: false,
+      home: const SplashScreen(),
+    ),
+  );
 }
 
 class KridanshApp extends StatefulWidget {
@@ -47,19 +60,13 @@ class _KridanshAppState extends State<KridanshApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        title: 'Kridansh 23',
-        theme: ThemeData(
-          fontFamily: GoogleFonts.poppins().fontFamily,
-        ),
-        debugShowCheckedModeBanner: false,
-        home: Stack(
-          children: [
-            pages[index],
-            bottomShadow(),
-            bottomNavBar(),
-          ],
-        ));
+    return Stack(
+      children: [
+        pages[index],
+        bottomShadow(),
+        bottomNavBar(),
+      ],
+    );
   }
 
   // bottomShadow is only a container of height 200 acting as a bottom black gradiant

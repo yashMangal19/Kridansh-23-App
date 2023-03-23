@@ -64,20 +64,25 @@ class KridanshFormField extends StatelessWidget {
 }
 
 
-// InputDecoration propzingInputDecoration(String labelText) => InputDecoration(
-//   labelText: labelText,
-//   filled: true,
-//   fillColor: PropzingTheme.secondaryBgColor,
-//   border: const OutlineInputBorder(
-//     borderSide: BorderSide.none,
-//   ),
-//   contentPadding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 4),
-//   isDense: true,
-//   floatingLabelStyle: TextStyle(
-//     shadows: [Shadow(color: PropzingTheme.tertiaryTextColor, offset: const Offset(-3, -10))],
-//     color: Colors.transparent,
-//   ),
-// );
+InputDecoration kridanshInputDecoration({
+  required String labelText,
+  Color? labelTextColor,
+  Color? fillColor,
+  EdgeInsets? contentPadding,
+}) => InputDecoration(
+  labelText: labelText,
+  filled: true,
+  fillColor: fillColor,
+  border: const OutlineInputBorder(
+    borderSide: BorderSide.none,
+  ),
+  contentPadding: contentPadding?? const EdgeInsets.symmetric(vertical: 12.0, horizontal: 4),
+  isDense: true,
+  floatingLabelStyle: TextStyle(
+    shadows: [Shadow(color: labelTextColor??Colors.black, offset: const Offset(-3, -10))],
+    color: Colors.transparent,
+  ),
+);
 
 
 class FormButton extends StatelessWidget {
