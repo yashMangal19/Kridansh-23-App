@@ -7,14 +7,14 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:785056177811:android:63312995ababa8d043f766",
+        "mobilesdk_app_id": "1:785056177811:android:2b093e6cc8e0278f43f766",
         "android_client_info": {
-          "package_name": "com.example.kridansh_23_app"
+          "package_name": "com.kridansh.app"
         }
       },
       "oauth_client": [
         {
-          "client_id": "785056177811-7k3g016kr2tkjdmi48qdihn0pe3n94uh.apps.googleusercontent.com",
+          "client_id": "785056177811-50t5jct4srcevbim33s9vfo5948sn3l1.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
@@ -27,7 +27,7 @@
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "785056177811-7k3g016kr2tkjdmi48qdihn0pe3n94uh.apps.googleusercontent.com",
+              "client_id": "785056177811-50t5jct4srcevbim33s9vfo5948sn3l1.apps.googleusercontent.com",
               "client_type": 3
             },
             {
