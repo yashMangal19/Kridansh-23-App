@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.kridansh_23_app">
+    package="com.kridansh.app">
     <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:label="Kridansh"

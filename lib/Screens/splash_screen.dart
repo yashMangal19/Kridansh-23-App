@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:kridansh_23_app/Screens/authentication/login.dart';
-import 'package:kridansh_23_app/Screens/homepage.dart';
 import 'package:kridansh_23_app/Utils/app_configs.dart';
 import 'package:kridansh_23_app/main.dart';
 import 'package:shared_preferences/shared_preferences.dart';
