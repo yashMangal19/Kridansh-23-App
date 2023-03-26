@@ -75,7 +75,7 @@ class _KridanshAppState extends State<KridanshApp> {
     return Align(
       alignment: Alignment.bottomCenter,
       child: Container(
-        height: 200,
+        height: 120,
         width: double.infinity,
         decoration: BoxDecoration(
           gradient: LinearGradient(
