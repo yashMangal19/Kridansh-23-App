@@ -47,6 +47,8 @@ dependencies:
   package_info_plus: ^3.0.3
   http: ^0.13.5
   url_launcher: ^6.1.10
+  firebase_auth: ^4.2.2
+  cloud_firestore: ^4.4.5
 
 dev_dependencies:
   flutter_test:

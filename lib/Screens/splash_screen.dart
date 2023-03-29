@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kridansh_23_app/Screens/authentication/login.dart';
 import 'package:kridansh_23_app/Utils/app_configs.dart';
+import 'package:kridansh_23_app/Utils/firebase_functions.dart';
 import 'package:kridansh_23_app/main.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -28,6 +29,7 @@ class _SplashScreenState extends State<SplashScreen> {
     // redirects user to corresponding pages depending on Sign-In status
     await loadSharedPrefs();
     AppConfigs appConfigs = AppConfigs();
+    FirebaseService authService = FirebaseService();
     bool isLatestVersion = await appConfigs.isLatestVersion();
 
     await Future.delayed(const Duration(seconds: 2));
@@ -40,9 +42,9 @@ class _SplashScreenState extends State<SplashScreen> {
     final bool invalidSignin = prefs.getBool('invalid_signin')??false;
     if(invalidSignin){
       /// todo : Signout user
-      debugPrint("Invalid Signin, user might get signed out at a later time...");
+      await authService.signOutFromGoogle();
     }
-    if(!isLatestVersion){
+    if(!isLatestVersion && mounted){
       Navigator.of(context).pushReplacement(
           MaterialPageRoute(builder: (context)=>const UpdateAppPage())
       );
