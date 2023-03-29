@@ -41,8 +41,13 @@ class _HomePageState extends State<HomePage> {
   // String used in the body of the Homepage.
   String introSectionHeading = "Fuel Your Rivalry !!";
   String highlightSectionHeading = "Highlights";
-  String introductionText =
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.";
+  String introductionText = "The much-awaited Inter Hostel Sports Fest of IIT Jodhpur, "
+      "KRIDANSH !!  is finally here.\nFrom basketball to badminton, football to table "
+      "tennis, Kridansh promises to be a thrilling showcase of talent, skill, and team "
+      "spirit. The air will be filled with cheers and applause, the competition will be "
+      "tough, with each hostel vying for the top spot. Rivalry will be at an all-time high"
+      " as the athletes put their best foot forward to bring glory to their respective "
+      "hostels.\nOnly the best will lift the coveted trophy.";
 
   @override
   Widget build(BuildContext context) {
@@ -110,6 +115,7 @@ class _HomePageState extends State<HomePage> {
         Text(
           introductionText,
           style: regularTextStyle,
+          textAlign: TextAlign.justify,
         ),
       ],
     );
