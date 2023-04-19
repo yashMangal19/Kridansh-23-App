@@ -13,6 +13,7 @@ class AppConfigs{
       await _fetchConfigs();
     }
     on Exception catch(err){
+      debugPrint(err.toString());
       configJson = {
         "latest_version" : "1.0.0",
         "playstore_url" : ""
